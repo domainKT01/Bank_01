@@ -61,10 +61,3 @@
     </div>
   </x-jet-authentication-card>
 </x-guest-layout>
-
-
-
-
-
-class="block mb-1 text-gray-600 font-semibold"
-class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full"
