@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\formController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('logueate', function(){
-
-    return view('components.inicio');
-});
+Route::post('forms', [formController::class, 'store'])->name('forms');

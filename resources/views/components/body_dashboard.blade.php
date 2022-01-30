@@ -1,4 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
+<title>
+  Dashboard
+</title>
 <nav class="bg-gray-800">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
@@ -74,7 +77,7 @@
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
           -->
-          <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+          <div class="overflpow-hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
             <!-- Active: "bg-gray-100", Not Active: "" -->
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
@@ -99,3 +102,68 @@
     </div>
   </div>
 </nav>
+@if(! isset($request))
+<x-guest-layout>
+  <x-jet-authentication-card>
+    <link rel="stylesheet" href="css/app.css">
+    <x-slot name="logo">
+      <x-jet-authentication-card-logo />
+    </x-slot>
+
+    <x-jet-validation-errors class="mb-4" />
+
+    <form method="POST" action="{{ route('forms') }}">
+      @csrf
+
+      <div>
+        <label>
+          Paciente
+        </label>
+      </div>
+      <div class="mt-4">
+        <x-jet-label for="email" value="{{ __('talla') }}" />
+        <x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required />
+      </div>
+
+      <div class="mt-4">
+        <x-jet-label for="email" value="{{ __('peso') }}" />
+        <x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" required />
+      </div>
+
+      <div class="mt-4">
+        <select class="form-select" aria-label="Default select example" name="sexo">
+          <option selected>Sexo</option>
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+        </select>
+      </div>
+
+      <div class="flex items-center justify-end mt-4">
+
+      <button style="font-family: cursive;" type="submit" class="ml-4">Calcular</button>
+      </div>
+    </form>
+  </x-jet-authentication-card>
+</x-guest-layout>
+@else
+<table class="table table-dark table-borderless">
+    <thead>
+        <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">IMC</th>
+            <th scope="col">volemia</th>
+            <th scope="col">Apto?</th>
+            <th scope="col">Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ $namePatient }}</td>
+            <td>{{ $response }}</td>
+            <td>{{ $volemia }}</td>
+            <td>{{ $apto }}</td>
+            <td>{{ $categoria }}</td>
+        </tr>
+    </tbody>
+</table>
+@endif

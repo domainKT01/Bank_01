@@ -31,7 +31,7 @@
       </div>
 
       <!--Sidebar-->
-      <div class="w-full md:w-1/5 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+      <div :class="`origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg transition ease-${dropdown ? 'out' : 'in'} duration-${dropdown ? '100' : '75'} transform opacity-${dropdown ? '100' : '0'} scale-${dropdown ? '100' : '95'}`">
          <div class="md:relative mx-auto lg:float-right lg:px-6">
             <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
                <li class="mr-3 flex-1">
