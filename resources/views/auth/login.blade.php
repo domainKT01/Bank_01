@@ -1,51 +1,53 @@
 <x-guest-layout>
-    <link rel="stylesheet" href="css/app.css"
     <x-jet-authentication-card>
+        <link rel="stylesheet" href="css/app.css">
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
-        @if (session('status'))
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ session('status') }}
-        </div>
-        @endif
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-        <div class="h-screen bg-slate-50 flex justify-center items-center w-full">
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
+            <div>
+                <label>
+                    Login
+                </label>
+            </div>
+            <div class="mt-4">
+                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            </div>
 
-                <div>
-                    <x-jet-label class="block mb-1 text-gray-600 font-semibold" for="email" value="{{ __('Email') }}" />
-                    <x-jet-input id="email" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" type="email" name="email" :value="old('email')" required autofocus />
-                </div>
+            <div class="mt-4">
+                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
 
+            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <div class="mt-4">
-                    <x-jet-label class="block mb-1 text-gray-600 font-semibold" for="password" value="{{ __('Password') }}" />
-                    <x-jet-input id="password" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" type="password" name="password" required autocomplete="current-password" />
-                </div>
+                    <x-jet-label for="terms">
+                        <div class="flex items-center">
+                            <x-jet-checkbox name="terms" id="terms"/>
 
-                <div class="block mt-4">
-                    <label for="remember_me" class="flex items-center">
-                        <x-jet-checkbox id="remember_me" name="remember" />
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                    </label>
+                            <div class="ml-2">
+                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
+                                ]) !!}
+                            </div>
+                        </div>
+                    </x-jet-label>
                 </div>
+            @endif
 
-                <div class="flex items-center justify-end mt-4">
-                    @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                    @endif
+            <div class="flex items-center justify-end mt-4">
 
-                    <x-jet-button class="ml-4">
-                        {{ __('Log in') }}
-                    </x-jet-button>
-                </div>
-            </form>
-        </div>
+                <x-jet-button class="ml-4">
+                    {{ __('Login') }}
+                </x-jet-button>
+            </div>
+        </form>
     </x-jet-authentication-card>
 </x-guest-layout>
