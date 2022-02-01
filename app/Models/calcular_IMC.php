@@ -19,33 +19,39 @@ class calcular_IMC extends Model
     public function categorizar($IMC)
     {
 
+        $values = new User();
+
+        $values->setTable('compare_value');
+
+        $values = $values->all();
+
         switch ($IMC){
 
-            case $IMC <= 18.5 :
+            case $IMC <= $values->bajoPeso :
 
                 return 'Bajo peso';
 
                 break;
 
-            case $IMC <= 22.49 :
+            case $IMC <= $values->normalBajo :
 
                 return 'Normal bajo peso';
 
                 break;
 
-            case $IMC <= 24.9 :
+            case $IMC <= $values->normalAlto :
 
                 return 'Normal alto peso';
 
                 break;
 
-            case $IMC <= 29.9 :
+            case $IMC <= $values->sobrepeso :
 
                 return 'Sobrepeso';
 
                 break;
 
-            case $IMC >= 30 :
+            case $IMC >= $values->obesidad :
 
                 return 'Obesidad';
 

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class inicio extends Component
+class dashboard extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class inicio extends Component
      */
     public function render()
     {
-        return view('components.dash.index');
+        return view('components.Admin-Template-master.index');
     }
 }

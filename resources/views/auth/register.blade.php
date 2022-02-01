@@ -1,11 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card>
-        <link rel="stylesheet" href="css/app.css">
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
+
+        <link rel="stylesheet" href="css/app.css">
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
