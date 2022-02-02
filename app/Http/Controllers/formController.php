@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Nette\Utils\Strings;
 use App\Http\Controllers\inData;
 use App\Models\calcular_IMC;
+use App\Models\insertCompare;
 use App\Models\insertData;
 
 class formController extends Controller
@@ -15,8 +16,18 @@ class formController extends Controller
     public function store(Request $request)
     {
 
-        $response2 = insertData::insert_Data_patient($request);
+        if ($request->patientName) {
 
-        return $request->peso;
+            $response2 = insertData::insert_Data_patient($request);
+
+            return $response2;
+        }
+
+        else {
+
+            $response3 = insertCompare::insert($request);
+
+            return "compare";
+        }
     }
 }

@@ -10,7 +10,7 @@ class calcular_IMC extends Model
     public function calculo($talla, $peso)
     {
 
-        $IMC = $peso;
+        $IMC = $peso / ($talla**2);
 
         return $IMC;
         
@@ -19,7 +19,7 @@ class calcular_IMC extends Model
     public function categorizar($IMC)
     {
 
-        $values = new User();
+        $values = new insertD();
 
         $values->setTable('compare_value');
 

@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Dashboard extends Component
+class InsertPatient extends Component
 {
     public function render()
     {
-        return view('livewire.Admin-Template-master.index');
+        return view('livewire.insert-patient');
     }
 }

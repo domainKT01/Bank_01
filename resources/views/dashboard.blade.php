@@ -1,1 +1,1 @@
-<x-dashboard />
+@livewire('dashboard')

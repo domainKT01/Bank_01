@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class insertData extends Model
 {
@@ -23,6 +24,16 @@ class insertData extends Model
 
         $apto = 'apto';
 
+        $user1 = new User();
+
+        $user1->setTable('patients');
+
+        $user1->nombre = $namePatient;
+
+        $user1->imc = $request->imc;
+
+        $user1->volemia = $volemia;
+
         if ($volemia >= 3.5) {
 
             $apto = 'Apto';
@@ -31,6 +42,10 @@ class insertData extends Model
             $apto = 'No Apto';
         }
 
-        return view('dashboard', compact('namePatient', 'response', 'volemia', 'apto', 'categoria'));
+        $user1->apto = $apto;
+
+        $user1->save();
+
+        return view('dashboard');
     }
 }

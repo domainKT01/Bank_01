@@ -19,7 +19,6 @@ class CreateCompareValueTable extends Migration
             $table->float('normalBajo');
             $table->float('normalAlto');
             $table->float('sobrepeso');
-            $table->float('obesidad');
             $table->timestamps();
         });
     }
