@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
+use App\Models\insertD;
 
 class insertCompare extends Model{
 
@@ -13,8 +14,6 @@ class insertCompare extends Model{
         $user = new insertD();
 
         $user->setTable('compare_value');
-
-        $user->id = 1;
 
         $user->bajoPeso = $request->bajoPeso;
 
@@ -26,6 +25,6 @@ class insertCompare extends Model{
 
         $user->save();
 
-        return view('dashboard');
+        return redirect()->route('dashboard');
     }
 }

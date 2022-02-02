@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User;
-use App\Models\insertD;
+use App\Models\calcular_IMC;
 
-class insertData extends Model
+class insertPatient extends Model
 {
 
     public static function insert($request)
@@ -20,10 +19,6 @@ class insertData extends Model
         $categoria = $imc->categorizar($response);
 
         $volemia = $imc->volemia($request->talla, $request->peso, $request->sexo);
-
-        $namePatient = $request->nombrePaciente;
-
-        $user = new User();
 
         $apto = 'apto';
 
