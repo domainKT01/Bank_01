@@ -21,9 +21,17 @@ class insertData extends Model
 
         $volemia = $imc->volemia($request->talla, $request->peso, $request->sexo);
 
-        $namePatient = $request->nombrePaciente;
+        $namePatient = $request->patientName;
 
         $user = new User();
+
+        $user->setTable('patients');
+
+        $user->nombre = $namePatient;
+
+        $user->imc = $response;
+
+        $user->volemia = $volemia;
 
         $apto = 'apto';
 
@@ -35,6 +43,8 @@ class insertData extends Model
             $apto = 'No Apto';
         }
 
-        return redirect()->route('dashboard');
+        $user->apto = $apto;
+
+        return redirect()->route('pacientes');
     }
 }

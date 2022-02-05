@@ -19,11 +19,11 @@ class calcular_IMC extends Model
     public function categorizar($IMC)
     {
 
-        $values = new insertD();
+        $values = new User();
 
-        $values->setTable('patients');
+        $values->setTable('compare_value');
 
-        $values = $values->all();
+        $values = $values->all()->first();
 
         switch ($IMC){
 
