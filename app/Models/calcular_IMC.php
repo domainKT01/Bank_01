@@ -21,7 +21,7 @@ class calcular_IMC extends Model
 
         $values = new insertD();
 
-        $values->setTable('compare_value');
+        $values->setTable('patients');
 
         $values = $values->all();
 

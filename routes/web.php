@@ -1,8 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\formController; 
+use App\Http\Controllers\formController;
+use App\Http\Controllers\patientController;
+use App\Http\Livewire\Compare;
 use App\Http\Livewire\Dashboard;
+use App\Http\livewire\insertPatient;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +24,10 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Dashboard::class)->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/parametros', Compare::class)->name('parametros');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/pacientes', insertPatient::class)->name('pacientes');
+
 Route::post('forms', [formController::class, 'store'])->name('forms');
+
+Route::post('patientForms', [patientController::class, 'store'])->name('patientForms');

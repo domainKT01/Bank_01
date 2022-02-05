@@ -9,7 +9,7 @@ use App\Models\calcular_IMC;
 class insertPatient extends Model
 {
 
-    public static function insert($request)
+    public static function data($request)
     {
 
         $imc = new calcular_IMC();
@@ -30,6 +30,6 @@ class insertPatient extends Model
             $apto = 'No Apto';
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('pacientes');
     }
 }

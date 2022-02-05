@@ -1,5 +1,7 @@
 <x-app-layout>
 
-    @livewire('dashboard')
+    <h1>
+        Dashboard
+    </h1>
     
 </x-app-layout>

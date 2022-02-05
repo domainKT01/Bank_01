@@ -11,7 +11,7 @@ class insertCompare extends Model{
 
     public static function insert($request){
 
-        $user = new insertD();
+        $user = new User();
 
         $user->setTable('compare_value');
 
@@ -25,6 +25,6 @@ class insertCompare extends Model{
 
         $user->save();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('parametros');
     }
 }
