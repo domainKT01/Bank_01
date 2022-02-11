@@ -19,19 +19,9 @@ class insertData extends Model
 
         $categoria = $imc->categorizar($response);
 
-        $volemia = $imc->volemia($request->talla, $request->peso, $request->sexo);
+        $volemia = $imc->volemia(floatval($request->talla), floatval($request->peso), $request->sexo);
 
         $namePatient = $request->patientName;
-
-        $user = new User();
-
-        $user->setTable('patients');
-
-        $user->nombre = $namePatient;
-
-        $user->imc = $response;
-
-        $user->volemia = $volemia;
 
         $apto = 'apto';
 
@@ -43,8 +33,18 @@ class insertData extends Model
             $apto = 'No Apto';
         }
 
-        $user->apto = $apto;
+        $patient = new User();
 
-        return redirect()->route('pacientes');
+        $patient->setTable('patients')->upsert([
+
+            'nombre' => $namePatient,
+            'imc' => $response,
+            'volemia' => $volemia,
+            'apto' => $apto
+        ],
+        1
+    );
+
+        return view('response-table', compact('namePatient', 'response', 'categoria', 'volemia', 'apto'));
     }
 }

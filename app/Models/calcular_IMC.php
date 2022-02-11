@@ -10,7 +10,7 @@ class calcular_IMC extends Model
     public function calculo($talla, $peso)
     {
 
-        $IMC = $peso / ($talla**2);
+        $IMC = $peso / $talla**2;
 
         return $IMC;
         
@@ -19,44 +19,34 @@ class calcular_IMC extends Model
     public function categorizar($IMC)
     {
 
-        $values = new User();
+        $data = User::select('*')->from('compare_value')->orderBy('id', 'desc')->first();
 
-        $values->setTable('compare_value');
+        if ( $IMC <= $data->bajoPeso ) {
 
-        $values = $values->all()->first();
+            return "bajo peso";
 
-        switch ($IMC){
-
-            case $IMC <= $values->bajoPeso :
-
-                return 'Bajo peso';
-
-                break;
-
-            case $IMC <= $values->normalBajo :
-
-                return 'Normal bajo peso';
-
-                break;
-
-            case $IMC <= $values->normalAlto :
-
-                return 'Normal alto peso';
-
-                break;
-
-            case $IMC <= $values->sobrepeso :
-
-                return 'Sobrepeso';
-
-                break;
-
-            case $IMC >= $values->obesidad :
-
-                return 'Obesidad';
-
-                break;
         }
+
+        elseif ( $IMC <= $data->normalBajo ) {
+
+            return "normal bajo";
+        }
+
+        elseif ( $IMC <= $data->normalAlto ) {
+
+            return "normal alto";
+        }
+
+        elseif ( $IMC <= $data->sobrepeso ) {
+
+            return "sobrepeso";
+        }
+
+        else {
+
+            return "obesidad";
+        }
+
     }
 
     public function volemia($talla, $peso, $sexo)

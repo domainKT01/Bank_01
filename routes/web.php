@@ -31,3 +31,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/pacientes', insertPatient
 Route::post('forms', [formController::class, 'store'])->name('forms');
 
 Route::post('patientForms', [patientController::class, 'store'])->name('patientForms');
+
+Route::get('data', function(){
+
+    return view('response-table');
+});

@@ -20,7 +20,13 @@
                     <option value="Mujer">Mujer</option>
                 </select>
             </div>
-            <button type="submit" style="color: white;" class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" aria-label="Default select example">Calcular</button>
+            <button type="submit" class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" aria-label="Default select example">Calcular</button>
         </form>
     </div>
+    <style>
+
+        button, h1 {
+            color: black;
+        }
+    </style>
 </div>
