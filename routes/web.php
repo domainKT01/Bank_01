@@ -19,14 +19,14 @@ use App\Http\livewire\insertPatient;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', Dashboard::class)->name('dashboard');
+Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/parametros', Compare::class)->name('parametros');
+Route::get('/parametros', Compare::class)->name('parametros');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/pacientes', insertPatient::class)->name('pacientes');
+Route::get('/pacientes', insertPatient::class)->name('pacientes');
 
 Route::post('forms', [formController::class, 'store'])->name('forms');
 
