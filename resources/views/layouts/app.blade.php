@@ -2,6 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <link rel="icon" href="images/icono.png">
     <link rel="stylesheet" href="css/app.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +46,7 @@
             <div class="flex flex-wrap items-center">
                 <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
                     <a href="#" aria-label="Home">
-                        <span class="text-xl pl-2"><i class="em em-grinning"></i></span>
+                        <span><img src="images/bloodbank.jpg" width="12%"></span>
                     </a>
                 </div>
 
@@ -63,16 +64,17 @@
                 <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
                     <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                         <li class="flex-1 md:flex-none md:mr-3">
-                            <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Politicas</a>
                         </li>
                         <li class="flex-1 md:flex-none md:mr-3">
-                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">Eventos</a>
                         </li>
                         <li class="flex-1 md:flex-none md:mr-3">
                             <div class="relative inline-block">
                                 <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span class="pr-2"><i class="em em-robot_face"></i></span> Hi, User <svg class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                    </svg></button>
+                                    </svg>
+                                </button>
                                 <div id="myDropdown" class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
                                     <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.." id="myInput" onkeyup="filterDD('myDropdown','myInput')">
                                     <form method="GET" action="{{ route('profile.show') }}">
@@ -80,10 +82,9 @@
 
                                         <x-jet-responsive-nav-link href="{{ route('profile.show') }}" onclick="event.preventDefault();
                                 this.closest('form').submit();">
-                                            {{ __('profile.show') }}
+                                            {{ __('Profile') }}
                                         </x-jet-responsive-nav-link>
                                     </form>
-                                    <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Settings</a>
                                     <div class="border border-gray-800"></div>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -141,16 +142,10 @@
                 </div>
             </nav>
             <section>
-                <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+                <div id="main" class="main-content flex-1 mt-12 md:mt-2 pb-24 md:pb-5">
                     <div class="bg-gray-800 pt-3">
-                        <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-                            <div class="min-h-screen bg-gray-100">
-
-                                <!-- Page Content -->
-                                <main>
-                                    {{ $slot }}
-                                </main>
-                            </div>
+                        <div class=" p-4 text-2xl">
+                            {{ $slot }}
                         </div>
                     </div>
                 </div>

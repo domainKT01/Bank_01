@@ -22,11 +22,11 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', Dashboard::class)->name('dashboard');
+Route::get('dashboard', Dashboard::class)->name('dashboard');
 
-Route::get('/parametros', Compare::class)->name('parametros');
+Route::get('parametros', Compare::class)->name('parametros');
 
-Route::get('/pacientes', insertPatient::class)->name('pacientes');
+Route::get('pacientes', insertPatient::class)->name('pacientes');
 
 Route::post('forms', [formController::class, 'store'])->name('forms');
 

@@ -9,6 +9,6 @@ class Dashboard extends Component
 
     public function render()
     {
-        return "";
+        return view('livewire.dashboard');
     }
 }
