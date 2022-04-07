@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('dashboard', Dashboard::class)->name('dashboard');
+Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 Route::get('parametros', Compare::class)->name('parametros');
 
@@ -36,3 +36,5 @@ Route::get('data', function(){
 
     return view('response-table');
 });
+
+//contraseña 000webhost CHSbpFABUwNO!tKE8K%#
