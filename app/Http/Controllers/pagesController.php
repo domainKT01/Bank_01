@@ -12,17 +12,17 @@ use Illuminate\Http\Request;
 
 class pagesController extends Controller
 {
-    public function insertPatient(){
+    public static function insertPatient(){
 
         return insertPatient::class;
     }
 
-    public function compare(){
+    public static function compare(){
 
         return Compare::class;
     }
 
-    public function Dashboard(){
+    public static function Dashboard(){
 
         return Dashboard::class;
     }

@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', pagesController::class, 'Dashboard')->name('dashboard');
+Route::get('/dashboard', pagesController::Dashboard())->name('dashboard');
 
 Route::get('parametros', pagesController::class, 'compare')->name('parametros');
 
