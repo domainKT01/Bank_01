@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\formController;
 use App\Http\Controllers\patientController;
-
 use App\Http\Controllers\pagesController;
 
 /*
@@ -23,9 +22,9 @@ Route::get('/', function () {
 
 Route::get('/dashboard', pagesController::Dashboard())->name('dashboard');
 
-Route::get('parametros', pagesController::class, 'compare')->name('parametros');
+Route::get('parametros', pagesController::compare())->name('parametros');
 
-Route::get('pacientes', pagesController::class, 'insertPatient')->name('pacientes');
+Route::get('pacientes', pagesController::insertPatient())->name('pacientes');
 
 Route::post('forms', [formController::class, 'store'])->name('forms');
 
