@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Compare extends Component
 {
-    public function render()
+    public static function render()
     {
         return view('livewire.compare');
     }

@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class InsertPatient extends Component
 {
-    public function render()
+    public static function render()
     {
         return view('livewire.insert-patient');
     }
