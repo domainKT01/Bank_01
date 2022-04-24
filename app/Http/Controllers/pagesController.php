@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\InsertPatient;
+use App\Http\Livewire\insertPatient;
 
 use App\Http\Livewire\Compare;
 
