@@ -14,22 +14,16 @@ class pagesController extends Controller
 {
     public static function insertPatient(){
 
-        $data = insertPatient::render();
-
-        return $data;
+        return insertPatient::class;
     }
 
     public static function compare(){
 
-        $data = Compare::render();
-
-        return $data;
+        return Compare::class;
     }
 
     public static function Dashboard(){
 
-        $data = Dashboard::render();
-
-        return $data;
+        return Dashboard::class;
     }
 }
