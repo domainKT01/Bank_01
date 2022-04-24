@@ -3,9 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\formController;
 use App\Http\Controllers\patientController;
-use App\Http\Livewire\Compare;
-use App\Http\Livewire\Dashboard;
-use App\Http\livewire\insertPatient;
+
+use App\Http\Controllers\pagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +21,11 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', Dashboard::class)->name('dashboard');
+Route::get('/dashboard', pagesController::class, 'Dashboard')->name('dashboard');
 
-Route::get('parametros', Compare::class)->name('parametros');
+Route::get('parametros', pagesController::class, 'compare')->name('parametros');
 
-Route::get('pacientes', insertPatient::class)->name('pacientes');
+Route::get('pacientes', pagesController::class, 'insertPatient')->name('pacientes');
 
 Route::post('forms', [formController::class, 'store'])->name('forms');
 
@@ -36,5 +35,3 @@ Route::get('data', function(){
 
     return view('response-table');
 });
-
-//contraseña 000webhost CHSbpFABUwNO!tKE8K%#
