@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\livewire\insertPatient;
+use App\Http\Livewire\InsertPatient;
 
 use App\Http\Livewire\Compare;
 
@@ -14,7 +14,7 @@ class pagesController extends Controller
 {
     public static function insertPatient(){
 
-        return insertPatient::class;
+        return InsertPatient::class;
     }
 
     public static function compare(){
