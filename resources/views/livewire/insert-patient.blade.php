@@ -4,9 +4,11 @@
     <div class="container py-5 max-w-md mx-auto">
         <form method="POST" action="{{ route('patientForms') }}">
             @csrf
+            <!--
             <div class="mb-4">
                 <input placeholder="Nombre" name="patientName" class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text">
             </div>
+            -->
             <div class="mb-4">
                 <input placeholder="Talla" name="talla" class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text">
             </div>

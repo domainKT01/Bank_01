@@ -35,6 +35,7 @@ class insertData extends Model
 
         $patient = new User();
 
+        /*
         $patient->setTable('patients')->upsert([
 
             'nombre' => $namePatient,
@@ -44,6 +45,7 @@ class insertData extends Model
         ],
         1
     );
+    */
 
         return view('response-table', compact('namePatient', 'response', 'categoria', 'volemia', 'apto'));
     }
